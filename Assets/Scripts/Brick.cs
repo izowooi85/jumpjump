@@ -1,27 +1,37 @@
 using UnityEngine;
 using System.Collections;
 
-public class Brick : MonoBehaviour {
+/*
+ * 130803 : Refactoring.
+ * 130801 : File generation. Fallig function Add.
+ * */
 
-	// Use this for initialization
+public class Brick : MonoBehaviour {
+	const float RotationSpeed = 20f;
+	const float FallingDepth = -8f;
+	const float ForceUpVector = 30f;
+	const float TimeUntilDestory = 3f;
 	void Start () {
 	
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		if(rigidbody.useGravity)
 		{
-			transform.Rotate(new Vector3(0f, 0f, 20f));
+			transform.Rotate(new Vector3(0f, 0f, RotationSpeed));
 		}
 	}
+	
 	public void StartFalling()
 	{
-		Vector3 nowPos = transform.position;
-		nowPos.z = -8;
-		transform.position = nowPos;
+		//Move to Depth.
+		Vector3 currentPosition = transform.position;
+		currentPosition.z = FallingDepth;
+		transform.position = currentPosition;
+		//Gravity Enable.
 		rigidbody.useGravity = true;
-		rigidbody.AddForce(Vector3.up * 30f, ForceMode.Impulse);
+		rigidbody.AddForce(Vector3.up * ForceUpVector, ForceMode.Impulse);
+		Destroy(gameObject, TimeUntilDestory);
 	}
 	
 }

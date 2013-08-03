@@ -1,10 +1,12 @@
 using UnityEngine;
 using System.Collections;
 
+/*
+ * 130801 : File generation.
+ * */
 public class GameManager : MonoBehaviour {
 	
 	public GameObject block;
-	// Use this for initialization
 	void Start () {
 		for(int i = 0 ; i < 25 ; i++)
 		{
@@ -15,8 +17,6 @@ public class GameManager : MonoBehaviour {
 			Instantiate(block, new Vector3(99f + 22 * i, 331f, 0f), Quaternion.identity); 
 		}
 	}
-	
-	// Update is called once per frame
 	void Update () {
 	
 	}
