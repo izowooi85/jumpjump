@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 /*
+ * 130813 : code review test.
  * 130803 : Refactoring.
  * 130801 : File generation. Fallig function Add.
  * */
